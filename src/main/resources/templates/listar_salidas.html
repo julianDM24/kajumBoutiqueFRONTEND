@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Salidas</title>
+</head>
+<body>
+    <h1>Salidas de Mercancía</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Código Prenda</th>
+                <th>Cantidad</th>
+                <th>Fecha</th>
+                <th>Usuario</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="salida : ${salidas}">
+                <td th:text="${salida.codigo_prenda}"></td>
+                <td th:text="${salida.cantidad_salida}"></td>
+                <td th:text="${salida.fecha_salida}"></td>
+                <td th:text="${salida.usuario.nombre}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

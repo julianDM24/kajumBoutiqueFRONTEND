@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Formulario Salida Mercancía</title>
+</head>
+<body>
+    <h1>Registrar Salida de Mercancía</h1>
+    <form th:action="@{/salida/guardar}" th:object="${salida}" method="post">
+
+        <label>Código de Prenda:</label>
+        <input type="text" th:field="*{codigo_prenda}" required><br>
+
+        <label>Cantidad de Salida:</label>
+        <input type="number" th:field="*{cantidad_salida}" required><br>
+
+        <label>Fecha de Salida:</label>
+        <input type="date" th:field="*{fecha_salida}" required><br>
+
+        <label>Usuario:</label>
+        <select th:field="*{usuario}" required>
+            <option value="" disabled selected>Seleccione un usuario</option>
+            <option th:each="usuario : ${usuarios}" th:value="${usuario.id_usuario}" th:text="${usuario.nombre}"></option>
+        </select><br>
+
+        <button type="submit">Guardar</button>
+    </form>
+</body>
+</html>

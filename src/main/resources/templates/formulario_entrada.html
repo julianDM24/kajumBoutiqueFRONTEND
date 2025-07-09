@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Formulario Entrada</title>
+</head>
+<body>
+<h1>Registrar Entrada de Mercancía</h1>
+
+<form th:action="@{/entrada/guardar}" th:object="${entrada}" method="post">
+    <label>Código de prenda:</label>
+    <input type="text" th:field="*{codigo_prenda}" /><br>
+
+    <label>Cantidad:</label>
+    <input type="number" th:field="*{cantidad_entrada}" /><br>
+
+    <label>Fecha:</label>
+    <input type="date" th:field="*{fecha_entrada}" /><br>
+
+    <label>Usuario:</label>
+    <select th:field="*{usuario}">
+        <option th:each="u : ${usuarios}" th:value="${u.id_usuario}" th:text="${u.nombre}"></option>
+    </select><br><br>
+
+    <button type="submit">Guardar</button>
+</form>
+</body>
+</html>
