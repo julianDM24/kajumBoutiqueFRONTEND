@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Menú Principal</title>
+</head>
+<body>
+<h1 th:text="'Bienvenido ' + ${usuario.nombre} + ' al sistema de Kajum Boutique'"></h1>
+
+
+
+    <ul>
+        <li><a th:href="@{/prendas/listar}">📦 Inventario</a></li>
+        <li><a th:href="@{/entrada/formulario}">⬆ Entrada de Mercancía</a></li>
+        <li><a th:href="@{/cliente/formulario}">🧑‍💼 Registrar Cliente</a></li>
+        <li><a th:href="@{/salida/formulario}">⬇ Salida de Mercancía</a></li>
+        <li><a th:href="@{/venta/formulario}">🛒 Nueva Venta</a></li>
+       <li><a th:href="@{/factura/listar(id_usuario=${usuario.idUsuario})}">🧾 Ver Facturas</a></li>
+        <li><a th:href="@{/usuario/listar}">👤 Lista de Usuarios</a></li>
+        <li><a th:href="@{/usuario/formulario}">👤 Nuevo Usuarios</a></li>
+    </ul>
+</body>
+</html>

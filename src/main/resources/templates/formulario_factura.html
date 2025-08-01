@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Formulario Factura</title>
+</head>
+<body>
+    <h2>Registrar Factura</h2>
+    <form th:action="@{/factura/guardar}" th:object="${factura}" method="post">
+    
+      <label>Venta:</label>
+<select th:field="*{venta.id_venta}">
+    <option th:each="v : ${ventas}"
+        th:value="${v.id_venta}"
+        th:text="'Venta #' + ${v.id_venta} + ' - Total: $' + ${v.total_venta}">
+</option>
+
+</select><br/>
+
+        <label>Fecha Emisión:</label>
+        <input type="date" th:field="*{fecha_emision}" required /><br/>
+
+        <label>Forma de Pago:</label>
+        <select th:field="*{formaPago}">
+            <option th:each="fp : ${formasPago}" th:value="${fp}" th:text="${fp}"></option>
+        </select><br/>
+
+        <label>Cliente:</label>
+        <select th:field="*{cliente.id_cliente}">
+            <option th:each="c : ${clientes}" th:value="${c.id_cliente}" th:text="${c.nombre}"></option>
+        </select><br/>
+
+        <label>Usuario:</label>
+<select th:field="*{usuario.idUsuario}">
+    <option th:each="u : ${usuarios}" th:value="${u.idUsuario}" th:text="${u.nombre}"></option>
+</select><br/>
+
+
+        <button type="submit">Guardar</button>
+    </form>
+</body>
+</html>
+
+

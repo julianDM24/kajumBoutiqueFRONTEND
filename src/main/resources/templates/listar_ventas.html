@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de Ventas</title>
+</head>
+<body>
+    <h1>Listado de Ventas</h1>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Fecha</th>
+                <th>Tipo de Pago</th>
+                <th>Días Crédito</th>
+                <th>Total Venta</th>
+                <th>Cliente</th>
+                <th>Usuario</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="venta : ${ventas}">
+                <td th:text="${venta.id_venta}"></td>
+                <td th:text="${venta.fecha_venta}"></td>
+                <td th:text="${venta.tipoPago}"></td>
+                <td th:text="${venta.diasCredito}"></td>
+                <td th:text="${venta.total_venta}"></td>
+                <td th:text="${venta.cliente.nombre}"></td>
+                <td th:text="${venta.usuario != null ? venta.usuario.nombre : 'Sin usuario'}"></td>
+
+            </tr>
+        </tbody>
+    </table>
+
+    <a th:href="@{/venta/formulario}">Registrar nueva venta</a>
+</body>
+</html>

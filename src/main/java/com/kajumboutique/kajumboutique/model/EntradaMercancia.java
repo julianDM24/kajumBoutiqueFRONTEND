@@ -15,7 +15,7 @@ public class EntradaMercancia {
     private LocalDate fecha_entrada;
 
     @ManyToOne
-    @JoinColumn(name = "id_usuario")
+    @JoinColumn(name = "usuario")
     private Usuario usuario;
 	
 	

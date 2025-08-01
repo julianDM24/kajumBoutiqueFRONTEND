@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Facturas</title>
+</head>
+<body>
+    <h2>Facturas Registradas</h2>
+    
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID Factura</th>
+                <th>Fecha Emisión</th>
+                <th>Forma de Pago</th>
+                <th>Cliente</th>
+                <th>Vendedor</th>
+                <th>ID Venta</th>
+                <th>Total Venta</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="factura : ${facturas}">
+                <td th:text="${factura.id_factura}"></td>
+                <td th:text="${factura.fecha_emision}"></td>
+                <td th:text="${factura.formaPago}"></td>
+                <td th:text="${factura.cliente != null ? factura.cliente.nombre : 'Sin cliente'}"></td>
+                <td th:text="${factura.usuario != null ? factura.usuario.nombre : 'Sin usuario'}"></td>
+                <td th:text="${factura.venta != null ? factura.venta.id_venta : 'Sin venta'}"></td>
+               
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

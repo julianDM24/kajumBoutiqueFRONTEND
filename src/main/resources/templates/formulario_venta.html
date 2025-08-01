@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario Venta</title>
+</head>
+<body>
+    <h1>Registrar Venta</h1>
+
+    <form th:action="@{/venta/guardar}" th:object="${venta}" method="post">
+        <label>Fecha de Venta:</label>
+        <input type="date" th:field="*{fecha_venta}" /><br/>
+
+        <label>Tipo de Pago:</label>
+        <select th:field="*{tipoPago}">
+            <option th:each="tipo : ${tiposPago}"
+                    th:value="${tipo}"
+                    th:text="${tipo}">Tipo</option>
+        </select><br/>
+
+        <label>Días de Crédito:</label>
+        <input type="number" th:field="*{diasCredito}" /><br/>
+
+        <label>Total Venta:</label>
+        <input type="number" step="0.01" th:field="*{total_venta}" /><br/>
+
+        <label>Cliente:</label>
+        <select th:field="*{cliente.id_cliente}">
+            <option th:each="cliente : ${clientes}"
+                    th:value="${cliente.id_cliente}"
+                    th:text="${cliente.nombre}">Cliente</option>
+        </select><br/>
+
+        <label>Usuario:</label>
+<select th:field="*{usuario}">
+    <option th:each="u : ${usuarios}" 
+            th:value="${u.idUsuario}" 
+            th:text="${u.nombre}"></option>
+</select><br/>
+
+        <button type="submit">Guardar Venta</button>
+    </form>
+</body>
+</html>

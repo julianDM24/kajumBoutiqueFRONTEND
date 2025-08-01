@@ -19,7 +19,7 @@
         <label>Usuario:</label>
         <select th:field="*{usuario}" required>
             <option value="" disabled selected>Seleccione un usuario</option>
-            <option th:each="usuario : ${usuarios}" th:value="${usuario.id_usuario}" th:text="${usuario.nombre}"></option>
+            <option th:each="usuario : ${usuarios}" th:value="${usuario.idUsuario}" th:text="${usuario.nombre}"></option>
         </select><br>
 
         <button type="submit">Guardar</button>

@@ -1,27 +1,31 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Formulario Usuario</title>
+    <title>Registrar Usuario</title>
 </head>
 <body>
-    <h1>Registrar Usuario</h1>
-    <form th:action="@{/usuario/guardar}" th:object="${usuario}" method="post">
-        <label>Nombre:</label>
-        <input type="text" th:field="*{nombre}" required><br>
+<h2>Formulario de Usuario</h2>
+<form th:action="@{/usuario/guardar}" th:object="${usuario}" method="post">
+    <label>Cédula:</label>
+    <input type="number" th:field="*{idUsuario}" required/><br/>
 
-        <label>Usuario:</label>
-        <input type="text" th:field="*{usuario}" required><br>
+    <label>Nombre completo:</label>
+    <input type="text" th:field="*{nombre}" required/><br/>
 
-        <label>Contraseña:</label>
-        <input type="password" th:field="*{contrasena}" required><br>
+    <label>Contraseña:</label>
+    <input type="password" th:field="*{contrasena}" required/><br/>
 
-        <label>Fecha de Creación:</label>
-        <input type="date" th:field="*{fecha_creacion}" required><br>
+    <label>Fecha de creación:</label>
+    <input type="date" th:field="*{fecha_creacion}" required/><br/>
 
-        <label>Rol:</label>
-        <input type="text" th:field="*{rol}" required><br>
+    <label>Rol:</label>
+    <select th:field="*{rol}" required>
+        <option value="">Seleccione...</option>
+        <option value="ADMIN">ADMIN</option>
+        <option value="EMPLEADO">EMPLEADO</option>
+    </select><br/>
 
-        <button type="submit">Guardar</button>
-    </form>
+    <button type="submit">Guardar</button>
+</form>
 </body>
 </html>

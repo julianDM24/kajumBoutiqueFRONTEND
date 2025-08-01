@@ -6,41 +6,37 @@ import java.time.LocalDate;
 @Entity
 public class Usuario {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id_usuario;
+	@Id
+	@Column(name = "id_usuario")
+	private Long idUsuario;
+
 
     private String nombre;
-    private String usuario;
     private String contrasena;
     private LocalDate fecha_creacion;
     private String rol;
 
     // Getters y Setters
 
-    public int getId_usuario() {
-        return id_usuario;
-    }
-
-    public void setId_usuario(int id_usuario) {
-        this.id_usuario = id_usuario;
-    }
+   
 
     public String getNombre() {
         return nombre;
     }
-
+    
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    public String getUsuario() {
-        return usuario;
-    }
+    public Long getIdUsuario() {
+		return idUsuario;
+	}
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
+	public void setIdUsuario(Long idUsuario) {
+		this.idUsuario = idUsuario;
+	}
+
+
 
     public String getContrasena() {
         return contrasena;
