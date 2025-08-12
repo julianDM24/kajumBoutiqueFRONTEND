@@ -98,6 +98,4 @@ Está desarrollado con Spring Boot y utiliza JPA para la persistencia de datos.
 Clonar el repositorio:
 
 ```bash
-git clone https://github.com/julianDM24/kajumBoutiqueFRONTEND.git
-
-
+git clone https://github.com/julianDM24/kajumBoutiqueFRONTED.git
